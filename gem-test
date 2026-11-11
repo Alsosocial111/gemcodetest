@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AlsoSocial. | Digital Presence, Perfected.</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { background: '#0a0a0a', foreground: '#ffffff' },
+          fontFamily: { sans: ['Inter', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+
+  <!-- Spline 3D Viewer -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.9/build/spline-viewer.js"></script>
+
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #ffffff;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    /* Initial Load Animations */
+    .fade-up-1 { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards; opacity: 0; transform: translateY(30px); }
+    .fade-up-2 { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; opacity: 0; transform: translateY(30px); }
+    .fade-up-3 { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards; opacity: 0; transform: translateY(30px); }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Scroll Reveal Animations */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hide Spline Logo */
+    spline-viewer::part(logo) {
+      display: none !important;
+    }
+  </style>
+</head>
+<body class="selection:bg-white selection:text-black">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full p-6 flex justify-between items-center z-50 mix-blend-difference">
+    <div class="text-xl font-bold tracking-tighter">AlsoSocial.</div>
+    <button class="px-6 py-2 bg-white text-black rounded-full font-medium hover:scale-105 transition-transform">
+      Let's Talk
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative h-screen flex items-center justify-center overflow-hidden pt-20">
+    <!-- 3D Background -->
+    <div class="absolute inset-0 z-0 opacity-60">
+      <spline-viewer url="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode"></spline-viewer>
+    </div>
+    
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pointer-events-none">
+      <h1 class="fade-up-1 text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 leading-tight">
+        Digital Presence, <br/> Perfected.
+      </h1>
+      <p class="fade-up-2 text-lg md:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto">
+        We build high-converting websites and scale brands through data-driven ad management.
+      </p>
+      <div class="fade-up-3 pointer-events-auto">
+        <button class="flex items-center gap-2 mx-auto px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-gray-200 transition-colors">
+          View Our Work 
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10 bg-background">
+    <div class="mb-20 scroll-reveal">
+      <h2 class="text-4xl md:text-6xl font-bold tracking-tighter">What We Do</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Card 1 -->
+      <div class="scroll-reveal p-8 rounded-3xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition-colors" style="transition-delay: 0.1s;">
+        <div class="mb-6 text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+        </div>
+        <h3 class="text-2xl font-bold mb-4">Website Creation</h3>
+        <p class="text-gray-400 leading-relaxed">Custom, responsive builds tailored to your brand identity.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="scroll-reveal p-8 rounded-3xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition-colors" style="transition-delay: 0.2s;">
+        <div class="mb-6 text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3 class="text-2xl font-bold mb-4">Redesigns</h3>
+        <p class="text-gray-400 leading-relaxed">Modernizing outdated platforms for better UX and conversions.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="scroll-reveal p-8 rounded-3xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition-colors" style="transition-delay: 0.3s;">
+        <div class="mb-6 text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3 class="text-2xl font-bold mb-4">Ad Management</h3>
+        <p class="text-gray-400 leading-relaxed">Targeted campaigns to maximize your ROI across social channels.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 border-t border-zinc-900 text-center text-gray-500 relative z-10 bg-background">
+    <p>© 2026 AlsoSocial. All rights reserved.</p>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      });
+
+      document.querySelectorAll('.scroll-reveal').forEach((el) => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
